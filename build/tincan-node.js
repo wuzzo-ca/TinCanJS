@@ -1,4 +1,4 @@
-"0.50.0";
+"0.50.1";
 /*
 CryptoJS v3.1.2
 code.google.com/p/crypto-js
@@ -3539,6 +3539,7 @@ TinCan client library
             @param {TinCan.Activity} cfg.activity Activity in document identifier
             @param {Function} [cfg.callback] Callback to execute on completion
             @param {Object} [cfg.requestHeaders] Optional object containing additional headers to add to request
+            @param {Object} [cfg.params] Extra params to add to the query string
         @return {Object} Value retrieved
         */
         retrieveActivityProfile: function (key, cfg) {
@@ -3555,6 +3556,7 @@ TinCan client library
                 url: "activities/profile",
                 method: "GET",
                 params: {
+                    ...cfg.params,
                     profileId: key,
                     activityId: cfg.activity.id
                 },
